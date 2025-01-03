@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story Timeline</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <style>
+        .memories-btn {
+        position: fixed;
+        bottom: 40px;
+        right: 60px;
+        padding: 20px;
+        background-color: #ff00aa;
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+        transition: transform 0.3s;
+        align-items: center;
+        clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+        }
+
+        .memories-btn:hover {
+        transform: scale(2);
+        }
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-5px) scale(2);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      background-color: rgb(255, 147, 147);
+      transition: transform 0.3s;
+    }
+
+    .timeline-item img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+    }
+
+    .timeline-item .content {
+      margin-left: 1rem;
+    }
+
+    .timeline-item .content h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #4b5563;
+    }
+
+    .timeline-item .content p {
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+
+    /* For small screens */
+    @media (max-width: 640px) {
+      .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .timeline-item .content {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-rose-100">
+
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold text-center mb-12 text-rose-600 flex items-center justify-center">
+      <i class="fas fa-unlock mr-2"></i> Our Love Story Timeline
+    </h1>
+
+    <div class="relative">
+      <div id="timelineEvents"></div>
+    </div>
+  </div>
+
+  <button id="memories-btn" class="memories-btn" onclick="window.location.href='memories.html'">Our Memories</button>
+
+  <script>
+    const timelineEvents = [
+      { date: 'Jan 21, 2024', title: 'Our Love Story Begins 💕', description: 'The day our hearts found each other in perfect harmony.',
+      images: ['https://lh3.googleusercontent.com/pw/AP1GczObVNmHCV9kA6HEMuAotmCIhjIAozZxfpnUHfuPwVoI6gKE8aDTU6akysYDFyx-6rWXa6qTSNTIeT1xfHbJIxLCwogu04n91umi8UmJlnCAyXlO0ac=w640-h480',
+      'https://lh3.googleusercontent.com/pw/AP1GczMykwi_FTTs0OVSREf4BDbl0L79I-YIvBe8swlbrp6qJADtXrh_C5TwOYjPwoz-R8zcDBzRBM5QGOYBBBjdIzIzQC-iX1aNPT8K7np4d5bRBVAybl0=w640-h480']  },
+      { date: 'Jan 24, 2024', title: 'An Enchanted First Date ✨', description: 'Strolling hand-in-hand during our magical beach escape.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczPjfZ5twqqUywZvOsULmDbTpQY99MIaEInTj4Nj-1dKGGSXTdbfryzuI9C63PxA-a7YC5o5ZdHdPHazfgcNIm-ocrjbM-K1fwpObpvRw5pd7bVtqUg=w640-h480',
+'https://lh3.googleusercontent.com/pw/AP1GczO8DMR_IxNtq79dZu-Oll9NA12nKXyfpxS1v6RVxB5cCbpWTMYnbrHzlSTk6wyQ63nPyKHXiOn8ZjY6d61eKZlNXKvH5AY_CQuY7ZIs7nCvYd-q6BY=w640-h480']
+
+       },
+      { date: 'Feb 07, 2024', title: 'Whispers at the Lighthouse 🌅', description: 'Under the glowing light, we promised endless adventures together.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczM5Qk5hxZjSEl9gTLQKnK4jILtsAKiqHlYXfv8cK-e9phHBaP9RMUA6ERczxtnGA0AvPoR50TfPr4_XeSkCIgT1sgAlbmNw1RUq5Ey7TKavAbPqap8=w640-h480',
+'https://lh3.googleusercontent.com/pw/AP1GczN9MwK7cIakcqSTcbiFGc1Rqdg2ag4F4p5ses3t2JrrHkX97s1jcK7ZcoWNdyXKye1tos9DPz1l7etfihbKKZ_dl5KmtvirRpUtrrVCxvivtWftrig=w640-h480']
+       },
+      { date: 'Feb 23, 2024', title: 'A Journey to Varkala 🌊', description: 'Our first trip, filled with laughter, love, and unforgettable moments.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczNcCoah9MHO0w0rLj4rxPaUtCB1I3VJRWyxF7Tpu_dwgg6tUQj3PIyZKG-t8cfyaZJBR5o4XPLuTzBtnk3r5x3nC1qf-0HaAAT-yFT5DoLCSKgNwEo=w640-h480','https://lh3.googleusercontent.com/pw/AP1GczO8yvBh58Afou6RkYxsdADlnd7Fo-onlxtY4PbAXoMzzJYf2ZhA_-xyO8H4_54xMvC-VzvB6y2ZC9wfIRrO03jjKk-bu1oGgMZlivRh2QN0L50-3FQ=w640-h480']
+       },
+      { date: 'Feb 24, 2024', title: 'Romance on the Rails 🚆', description: 'Every mile brought us closer in a train of dreams.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczNk7wRNfhS0fMF3OdXf1IhvgmPp9s-HpvSxqX0SVQeIpaFjt3e6lowiP8EJEWVdPzt4cJL2Rn4mGMZI_HdxI9qpbTFN_q0rpcVJy6PMMEjJqyCPlOY=w640-h480',
+'https://lh3.googleusercontent.com/pw/AP1GczON3hlGRjUX_Hgov6I8EkQTks733jXf_Nfbs_TUv5tMa_2hWHdZfEe6tHHlopq2oYxRH1NfACf1wveT4A8fnoBC3KilM7td-qO7EWnmqNIHu56xvCE=w640-h480']
+
+      },
+      { date: 'Feb 25, 2024', title: 'Cinema Magic 🎬', description: 'Sharing popcorn and dreams while watching "Premalu".',
+        images: [] },
+      { date: 'Mar 1, 2024', title: 'Love Knows No Distance 💌', description: 'The start of a long-distance journey, bound by love.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczNX0mIjqyC1XjIP4zIGyK5QdAUqjz-b3HyAD35Ng0iVIUSphIH4NnBx-9G1JuzH4C_bkuhYZS7UcCB7bmf9oEh0xUU_VePSBpGpUcbEYkJsifgEedw=w640-h480']
+    },
+      { date: 'Mar 31, 2024', title: 'Reunion Bliss 🌸', description: 'Meeting after a month felt like the sweetest sunrise.',
+        images:['https://lh3.googleusercontent.com/pw/AP1GczOWCwCylt1RVBfTscRQoTJfSP7qCQoYRQ552f6Y560jLWO3Hgg5fHgelOF1dPYK0sZ2w4dL8_BUHDKGjhUXY9cu1dy8N6aL_Bk1jZyTpdQDv_Ez63s=w640-h480']
+      
+     },
+      { date: 'Apr 02, 2024', title: 'Classroom Serenades 🎶', description: 'Stealing moments amidst the buzz of lectures.', 
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczPGYwukKiVUpCcOBiG-wSx0uboOZxmrvbeMf7vdP6t2a34c_wUlRucF2iJ2SaBrpwjRUQbzL3FQJ_pDE71oKjjsCMikv2wz_aiCnEV0BMyKhdU_Igk=w640-h480',
+        'https://lh3.googleusercontent.com/pw/AP1GczOmPiJiYP5Uf5VhRgQZuKLX07AvpJQ19s-LL3_ysemvrCbV5oTGSJhyHKpVmUj1hw9D9kGS8-_1WztKqSak40BV9TbFLdIQzVpjfXCd1O_8A0rJezA=w640-h480']
+       
+    },
+      { date: 'Apr 06, 2024', title: 'Mermaid Dreams 🌊', description: 'An outing by the sea, where every wave whispered love.' ,
+        images:  ['https://lh3.googleusercontent.com/pw/AP1GczNeulr6P_2t69-A6St87IXt0HnhWdU6-6TQJMzpZIUvOFjL2outnqbkW6Wxzj64Q90KH_dlC-6-PYWGM5tZ8NZJ91yQCeabp8jWYnUTdUPvIDppWz4=w640-h480',
+        'https://lh3.googleusercontent.com/pw/AP1GczO9IQE1YO10evc5vJuK12_uY3tf5AYanqmqDxKua2Kbg_XdyyFbHyUw4IJfreJnE4ZEPWwwQPRWbCY8S57ObjNeRxffi5pVdKvkVprYQ3kcTjtkg7Y=w640-h480']
+      
+
+      },
+      { date: 'Apr 15, 2024', title: 'Celebrating Ugadi Together 🌺', description: 'A festival of traditions and a love that felt timeless.' ,
+        images:['https://lh3.googleusercontent.com/pw/AP1GczMbPz8FQ-hQLBHV0t785SkRiSbjTcCxwKROk4-6pjYTaazWzMry4ie4qyguLI9Sy5XrPQBTY5QzWGFpTLl6-1W_xwzLXIuW2XYO0IKSgij40c91leA=w640-h480',
+'https://lh3.googleusercontent.com/pw/AP1GczOtDm7jXlW-1-_CVU0Yp7KXEodEbHwW-UOAtSc-G8fzs_jjP4rCHga7YnT-3RkXSV7y4uURxRipqfHPLv2EyZ_5Qfn24fLXay2gx7TrFrYM5ABsxhU=w640-h480']
+ 
+         },
+      { date: 'May 05, 2024', title: 'A Gourmet Affair 🍱', description: 'Savoring Japanese cuisine and shopping with hearts full of joy.' ,
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczOSamkmL-1fwhVdrprj2Ffoj6r6ChzBSsei2pT9W2MfFAifEsKjMevRm96goGYc6bhfHCmXonzlwA-mZDvADGPe0zQ9atYxROcW0_SXuLd_UBwtGpw=w640-h480','https://lh3.googleusercontent.com/pw/AP1GczO0Nq7sXdJWoaJ_uUY1p1OyggbeDRBd7UozM8sAYJ34WegOOkGs5RDq7eJhTmVqTULIqvI5x-WmVLpTJ6kVwiCafIhHjGUFtSg3wwjroTHMRHCdRjw=w640-h480']
+     
+    },
+      { date: 'May 06, 2024', title: 'Movie Magic Returns 🎥', description: 'Laughs and tears as we watched "Avesham" together.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczN5sJ7Ira4lndm7OdilNWAanpCjzP6szS-93mTF1gENLKjQb4jVCPblkET3zTyqikbOJz7jymGe9grj9kXDusFVia9NeBsRiSwfmzD0PyyWZCGjgEw=w640-h480','https://lh3.googleusercontent.com/pw/AP1GczPOdbhYYgrLuDx-uM-2ovmkZhFsI_MsxWvdUtoVKiFrAV7TIGq8Oc0FA_X5vicfMIVAjY_EB-UffIRnMD-hSPnz5pI-DKtTKRUDpWuQtVyr8JUmuIs=w640-h480']
+      
+    },
+      { date: 'May 12, 2024', title: 'Lighthouse Love Revisited 🌅', description: 'The lighthouse stood witness to our unchanging love.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczNyRW64A1IOGuJqMLI2dQHgxNkMT8Z6-OnEkjYlwpeaUmihEmhzVR73zdH8xW4wTSsIhipHFygoRvwOAXJv9MqykOo2ZDHNB6bBxHm5NKbHKU5p01g=w640-h480','https://lh3.googleusercontent.com/pw/AP1GczPqfuviN0-qQM4LJ5t9jNdzx-ramTVgXxHBm_Wb4zfinvTZU1P8PUCASoNB6o1NbxHpzUe8-bWSwJR_BuIkxyXgS-0kM3BgjjhsjS7KsmdNzTX530k=w640-h480']
+    },
+      { date: 'Jun 02, 2024', title: 'Drifting in Love 🛶', description: 'Floating on a river, lost in each other’s gaze.',
+        images:['https://lh3.googleusercontent.com/pw/AP1GczNdjNFke2avN4VA2i3f0yUmj4nIRrZcwYUkF3UdB_9bEgtKAcyhwG3fupGOXV_dNu4_vAKRtQ9jT-bTgPyzKFlsoX9Butf4BEksDDm4eIMCELBKiLo=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczMABEwCIu5thUxivXt89yenDu1pPC9Zxy0hviayhHQrnIYBmscXeKXd6u36N96gkpqG-NaRP4e71pq5EJhk3LpKr0OmnJaUYRxuL96KifBwiMrslJk=w640-h480']
+       
+     },
+      { date: 'Jun 09, 2024', title: 'Starry Date Night ✨', description: 'A night under the stars, filled with whispers of love.', 
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczMPVMV_jzaeyC_TBenXZiWO-auD_QTFKcWT76Ls5uJwAp2hrDW3OtvKiq2dI2SdxcfSWMDlN6xyZvdFt4qc2-AWKya5UvIYTh2UWhXLmhgIskv8TR4=w640-h480',
+        'https://lh3.googleusercontent.com/pw/AP1GczNf00xTfnnKV5oCF5kiZq7gfmp8vqBOyFtSJcDZ5O3bsL4BgMQ0uVkjd8gJOyXl4gIqnt9yRvL7fgKfG75aXYBLQ7FaCvRlLylrAP2zPVu_YX5n1qc=w640-h480']
+       
+       },
+      { date: 'Jun 15, 2024', title: 'Train of Dreams 🚂', description: 'Another date on the rails, hearts brimming with joy.',
+        images:     []  },
+      { date: 'Jul 01, 2024', title: 'Exam Fever 📝', description: 'Even the stress of exams couldn’t dim our connection.',
+        images: []
+    },
+      { date: 'Jul 21, 2024', title: 'Escape to Paradise 🌴', description: 'A peaceful break in Varkala, recharging our souls.',
+        images: 
+        ['https://lh3.googleusercontent.com/pw/AP1GczM7B99nUIfiNrw_SxJKfzYCiuDx1STPwgoeToDyPg5yUOLwIBqFkjhxC5A9UNURzHh-GgAoH2zfwHp3yfyGgdNCai3B8fnvuGlWEyViGlSwtJuK8DM=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczNrahnhzX5Jghfu2_wiNPxqxURdn-wjhzB2kWnSklmOO3YAlk6_-vCuihXDlhL-Q_Mi-3VRM41FYWXc34rcRaJdFjdNUoQUIm56akucp_EjmuD0ohk=w640-h480']
+
+       },
+      { date: 'Sep 15, 2024', title: 'Onam Celebrations 🎉', description: 'Festive vibes and a love that felt like a carnival.', 
+      images:['https://lh3.googleusercontent.com/pw/AP1GczNABVyJOwYqO3vQiWJtVwnAoICfxRr6zjC1TUwqO0ueEW9fQn7IjD1mib1lPXEFMa56QTUG7ldj4prEhVL2ibNKgP4qVmXxowAI8_6D5ZcPbTQJ2zs=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczN8aAD2qImLQNumJ0xEJ19CtRmN6iRVCK6vU424z_FGhUd7C2W_dz-kwf1v4Y8O0e8I9IgxAvKm_m7LgBjF8jhOiXcg0z0olm5nTzQvBbQuov74-JI=w640-h480']
+
+},
+       { date: 'Oct 31, 2024', title: 'A Royal Affair at Mysore Palace 👑', description: 'Walking through history, hand in hand.',
+        images:['https://lh3.googleusercontent.com/pw/AP1GczP_6pD0xxXFFNHz77ZdyQqZ6i2HLNJg4RXADUF3xhHDo3yaPyu9ncR7Foa-K1h5UafqQDzAtUcRM40UHrdRLDsfubf7Oka-rgmt6ZrMSbEl_uuX7sk=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczM8cQ-0w5ORoIVmL8KNTe0BFTkjV8WZGDiOS4GsrGtb195K6z3r3JLxeppNeL7sLRhhnaTxZIjB6KIYpkD2tCuewsUWb1_341V09rY95IWsJx3vVcA=w640-h480'] },
+     
+      { date: 'Nov 01, 2024', title: 'Wonderla Wonderland 🎢', description: 'Laughs and thrills on a day filled with adventures.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczNvBi0Q5PvE9ArvhxdnnSZdBgHpBUeAxGznmaZTC5EHZIoQz3WTqkIJwGKo56lFYCSOxQvNvqb0X2uBcmh0KB1U2Z1PduwJVtmB7kR4ZZ1hstm87Iw=w640-h480']
+    },
+      { date: 'Nov 02, 2024', title: 'Romance in Chikmagalur 🌄', description: 'Breathing love in the misty hills of Chikmagalur.',
+        images: ['https://lh3.googleusercontent.com/pw/AP1GczMGikA8O5_5wp9VzWScwjnOfSF5J1DnrcDxYfaKJDQdIvIorIt_E-FRp-w2TXH3KbrGJEloD_al1TpLHiNQtLqT1UciAuOekiIQuGQvmnNALctToto=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczM7VjE2vVDmXF87z1fITfBWElBDIHeZSOqDOlLqt_GWJaDyBInVudBLwnxtD2QwdbJEXX3egwVHdU5_yVJrMt9j0uA7_zIJKR2nvAzf18Xj1bzjVKk=w640-h480']
+       },
+      { date: 'Nov 03, 2024', title: 'Homeward Bound 🏡', description: 'Returning with hearts full of cherished memories.',
+        images: 
+['https://lh3.googleusercontent.com/pw/AP1GczPbhVynv4xch9AqIrympbPisTkcQXFlqIxawCEFnLhdVTdaXd092-q7pPoVzLSwHtcysdb8LuWQ_dxYgxObjjD0VFvJ0bu6-JZkoEnwD19JeA-UInY=w640-h480', 'https://lh3.googleusercontent.com/pw/AP1GczNvnZm2uMhQ-cdUFfXSrpZLj0qPINTVPo9IkxAEtv1FaBt-AsUIKHUk46RTpxKdyzDHtRE5SNchGkAzcpVQ2GXB6PeSaIfGV2wJU8dYZxQpuaLu6ZA=w640-h480']
+
+       },
+    ];
+
+    function renderTimeline() {
+  const timelineEventsContainer = document.getElementById('timelineEvents');
+  timelineEvents.forEach((event, index) => {
+    const timelineItem = document.createElement('div');
+    const isLeftAligned = index % 2 === 0;
+    const imageElements = event.images.map(imageUrl => {
+    return `<div class="images"><img src="${imageUrl}" alt="Event Image"></div>`;
+  }).join('');
+
+    timelineItem.className = `timeline-item flex ${isLeftAligned ? 'flex-row' : 'flex-row-reverse'}`;
+    timelineItem.innerHTML = `
+      <div class="w-16 h-16 bg-pink-200 rounded-full flex items-center justify-center ${
+        isLeftAligned ? 'mr-4' : 'ml-4'
+      }">
+        <i class="fas fa-heart text-rose-600"></i>
+      </div>
+      <div class="content flex-1 ${isLeftAligned ? 'text-left' : 'text-right'}">
+        <h3 class="font-bold text-lg">${event.title}</h3>
+        <p class="text-sm text-gray-500">${event.date}</p>
+        <p class="text-base text-gray-700">${event.description}</p>
+      </div>
+      ${imageElements}
+    `;
+    timelineEventsContainer.appendChild(timelineItem);
+  });
+}
+
+    renderTimeline();
+
+
+  </script>
+
+</body>
+</html>

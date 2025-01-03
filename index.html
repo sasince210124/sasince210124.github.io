@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication - Our Love Story</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <style>
+    /* Styling for the authentication page */
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+    }
+    .auth-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2 class="text-2xl font-bold mb-4 text-center text-rose-600">
+        <i class="fas fa-lock mr-2"></i> Our Private Timeline
+      </h2>
+      <input type="password" id="password" placeholder="Enter password"
+        class="w-full p-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-rose-300">
+      <p id="error" class="text-red-500 text-sm mb-4"></p>
+      <button onclick="handleAuthentication()"
+        class="w-full bg-pink-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300 mt-4">
+        Unlock Memories
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const CORRECT_PASSWORD = 'ourLove2024!';
+
+    function handleAuthentication() {
+      const password = document.getElementById('password').value;
+      const error = document.getElementById('error');
+      
+      if (password === CORRECT_PASSWORD) {
+        // Redirect to the timeline page upon successful authentication
+        window.location.href = 'timeline.html';
+      } else {
+        error.textContent = 'Incorrect password. Please try again.';
+      }
+    }
+  </script>
+</body>
+</html>
