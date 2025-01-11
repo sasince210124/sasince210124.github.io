@@ -41,43 +41,44 @@
     </div>
   </div>
 
-  <script>
-    const CORRECT_PASSWORD = 'Sree';
-    var x=1
+<script>
+  const CORRECT_PASSWORD = 'Sree';
+  
+  // Retrieve the counter from sessionStorage or initialize it
+  let x = sessionStorage.getItem('attempts') ? parseInt(sessionStorage.getItem('attempts')) : 1;
 
-    function handleAuthentication() {
-      const password = document.getElementById('password').value;
-      const error = document.getElementById('error');
-      
-      if (password === CORRECT_PASSWORD) {
-        // Redirect to the timeline page upon successful authentication
-        window.location.href = 'timeline.html';
-      } else if (x===1) {
+  function handleAuthentication() {
+    const password = document.getElementById('password').value;
+    const error = document.getElementById('error');
+    
+    if (password === CORRECT_PASSWORD) {
+      // Redirect to the timeline page upon successful authentication
+      window.location.href = 'timeline.html';
+    } else {
+      if (x === 1) {
         error.textContent = 'Incorrect password. Please try again.';
-        x=x+1;
-      } else if (x===2) {
+      } else if (x === 2) {
         error.textContent = 'I will give hint if once more wrong';
-        x=x+1;
-      }else if (x===3) {
+      } else if (x === 3) {
         error.textContent = 'Hint: Ur fav thing';
-        x=x+1;
-      }else if (x===4) {
+      } else if (x === 4) {
         error.textContent = 'Come on yar, you dont know ur fav thing';
-        x=x+1;
-      }else if (x===5) {
+      } else if (x === 5) {
         error.textContent = 'Now I am sad';
-        x=x+1; 
-      }else if (x===6) {
+      } else if (x === 6) {
         error.textContent = 'Think about me';
-        x=x+1; 
-      }else if (x===7) {
+      } else if (x === 7) {
         error.textContent = 'sad life';
-        x=x+1; 
-      }else {
+      } else {
         error.textContent = 'Call me';
-        x=x+1;
       }
+
+      // Increment the counter and store it in sessionStorage
+      x += 1;
+      sessionStorage.setItem('attempts', x);
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
