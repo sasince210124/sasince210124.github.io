@@ -64,6 +64,17 @@
       color: #6b7280;
       margin-bottom: 0.5rem;
     }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #ff00ea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
     /* For small screens */
     @media (max-width: 640px) {
@@ -89,6 +100,7 @@
       <div id="timelineEvents"></div>
     </div>
   </div>
+  <button class="home-btn" onclick="window.location.href='home.html'">Home</button>
 
   <button id="memories-btn" class="memories-btn" onclick="window.location.href='memories.html'">Our Memories</button>
 
