@@ -28,12 +28,24 @@
             display: block;
             object-fit: contain; /* Ensures the entire image is visible */
         }
+        .home-btn {
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              padding: 10px 20px;
+              background-color: #ff00ea;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
     </style>
 </head>
 <body>
     <div class="image-container" id="imageContainer">
         <!-- Images will be inserted dynamically -->
     </div>
+    <button class="home-btn" onclick="window.location.href='home.html'">Home</button>
 
     <script>
         const images = [
