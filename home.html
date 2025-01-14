@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 15px auto;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ff3d3d;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button" onclick="location.href='timeline.html'">Journey Through Time</button>
+        <button class="button" onclick="location.href='memories.html'">Treasured Memories</button>
+        <button class="button" onclick="location.href='jigsaw.html'">Puzzle Play</button>
+        <button class="button" onclick="location.href='index.html'">Logout</button>
+    </div>
+</body>
+</html>
